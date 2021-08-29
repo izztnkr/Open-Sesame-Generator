@@ -53,30 +53,40 @@ function criteriaFunction(userTurn){
    function stringyThingy(passwordLength){
     if (passwordLength != null){
       document.getSelection()
-      alert("Ok! " + passwordLength + " characters will be used.");
+      var generate = confirm("Ok! " + passwordLength + " characters will be used.");
+        if (generate === true){
+          writePassword;
+        }else{
+          alert("Password generation cancelled.")
+        }
     } else {
       alert("Invalid Choice!!\n Please choose a number between 8 and 128");
       var passwordLength = prompt("Please choose a character length between 8 and 128", "");
       stringyThingy(passwordLength)
     }
-    generatePassword
+    
   }
   
   // function generatePassword(includeSymbols, includeNumbers, includeUppercase, includeLowercase, passwordLength);
-  function generatePassword(includeSymbols, includeNumbers, includeUppercase, includeLowercase, passwordLength){
+  function generatePassword(includeSymbols, includeNumbers, includeUppercase, includeLowercase){
     let charCodes = lowerCase_CHAR_CODES
     if (includeUppercase) charCodes =charCodes.concat(UpperCase_CHAR_CODES)
     if (includeSymbols) charCodes= charCodes.concat(Symbol_CHAR_CODES)
     if (includeNumbers) charCodes= charCodes.concat(Numbers_CHAR_CODES)
 
-    var password = []
+    var passwordCombo = []
     for (let i = 0; i <passwordLength; i++){
-      var characterCodes = charCodes[Math.floor(Math.random()*passwordLength 
-        )]
+      var characterCodes = charCodes[Math.floor(Math.random()*passwordLength)]
+        passwordCombo.push(String.fromCharCode(charCodes))
     }
+    return passwordCombo.join('')
+  }
 
 
-    
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
   } 
  
    //figure out a way to impede user from entering anything but numbers for this box.
@@ -95,16 +105,9 @@ function arrayFromLowtoHigh(low,high) {
 // Write password to the #password box in the body of the HTML (// "WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page")) (// "WHEN all prompts are answered
 // THEN a password is generated that matches the selected criteria")
-function writePassword() {
-   var password = generatePassword();
-   var passwordText = document.querySelector("#password");
-   passwordText.value = password;
+// function writePassword() {
+//    var password = generatePassword();
+//    var passwordText = document.querySelector("#password");
+//    passwordText.value = password;
 
- }
-
-
-
-
-
-
-
+//  }
