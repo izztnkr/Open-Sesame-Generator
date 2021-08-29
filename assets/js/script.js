@@ -19,36 +19,49 @@ buttonEl.addEventListener ("click", criteriaFunction)
 // THEN my input should be validated and at least one character type should be selected"
 
 function criteriaFunction(userTurn){
-   userTurn1 = confirm('Include Symbols?');
-    if (userTurn1 === true) { 
+   includeSymbols = confirm('Include Symbols?');
+    if (includeSymbols === true) { 
       alert ("Ok! Symbols will be included.")
     } else { 
       alert("Ok! Symbols will NOT be included.")
     };
-   userTurn2 = confirm('Include Uppercase letters?');
-    if (userTurn2 === true) { 
+    includeNumbers = confirm('Include Numbers?');
+    if (includeNumbers === true) { 
+      alert ("Ok! Numbers will be included.")
+    } else { 
+      alert("Ok! Numbers will NOT be included.")
+    };
+   includeUppercase = confirm('Include Uppercase letters?');
+    if (includeUppercase === true) { 
       alert("Ok! Uppercase letters will be included.");
     } else {
       alert("Ok! Uppercase letters will NOT be included.");
     };
-   userTurn3 = confirm('Include Lowercase letters?');
-    if (userTurn3 === true) {
+   includeLowercase = confirm('Include Lowercase letters?');
+    if (includeLowercase === true) {
       alert("Ok! Lowercase letters will be included.");
     } else {
       alert("Ok! Lowercase letters will NOT be included.");
     };
+    
     //will need to use the prompt() Method here
-   userTurn4 = prompt("Please choose a character length between 8 and 128", "");
-    if (userTurn4 != null){
+   var passwordLength = prompt("Please choose a character length between 8 and 128", "");
+   stringyThingy(passwordLength);
+
+   function stringyThingy(passwordLength){
+    if (passwordLength != null){
       document.getSelection()
-      alert("Ok! " + inputValue + " will be used.");
+      alert("Ok! " + passwordLength + " characters will be used.");
     } else {
-      userTurn4;
+      alert("Invalid Choice!!\n Please choose a number between 8 and 128");
+      var passwordLength = prompt("Please choose a character length between 8 and 128", "");
+      stringyThingy(passwordLength)
     }
+  }
    //figure out a way to impede user from entering anything but numbers for this box.
 }
 
-  
+// function generatePassword(includeSymbols, includeNumbers, includeUppercase, includeLowercase, passwordLength);
  
 //What to do with the confirm or cancel? Use as parameters for the password generator. How?
 // Write password to the #password box in the body of the HTML (// "WHEN the password is generated
