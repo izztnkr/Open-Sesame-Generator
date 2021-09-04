@@ -3,8 +3,6 @@
 ## Built with: 
 HTML, CSS, JS &nbsp;&nbsp;
 
-<img align= "center" width= "150" src= "https://media1.giphy.com/media/XzqEFZ06NSFgXaut2g/giphy.gif?cid=ecf05e47092gyfhxnbk4hr81wdeqode7pg27r8so8w92nfx4&rid=giphy.gif&ct=g">
-
 ## Preview:
 ![image](https://user-images.githubusercontent.com/86173119/131264105-0e3a8a95-b7cb-4378-bd0d-481a1b7f7052.png)
 
